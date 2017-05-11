@@ -1,5 +1,5 @@
 import {h, render, Component} from 'preact';
-import {Distortion, Delay, Flanger, Reverb} from './';
+import {Distortion, Delay, Flanger, Reverb, Tremolo} from './';
 
 export default class SelectEffect extends Component {
     constructor(...args) {
@@ -11,6 +11,7 @@ export default class SelectEffect extends Component {
                 'delay',
                 'flanger',
                 'reverb',
+                'tremolo',
             ],
             effect: null,
         };
@@ -42,21 +43,36 @@ export default class SelectEffect extends Component {
             case 'reverb':
                 return (<Reverb onUpdateParam={this.props.onUpdateParam}/>);
                 break;
+            case 'tremolo':
+                return (<Tremolo onUpdateParam={this.props.onUpdateParam}/>);
+                break;
             default:
                 return null;
         }
     }
 
+    renderList() {
+        return (
+            <ul className="list">
+                {this.state.effects.map(effect => <li><button className="button button--full" onClick={() => ::this.toggleEffect(effect)}>{effect}</button></li>)}
+            </ul>
+        );
+    }
+
+    renderPedal() {
+        return (
+            <div className="pedal">
+                {this.renderEffect()}
+
+                <button className="button button--full" onClick={::this.toggleEffect}>Remove effect</button>
+            </div>
+        );
+    }
+
     render() {
         return (
-            <div>
-                <ul>
-                    {this.state.effects.map(effect => <li><button onClick={() => ::this.toggleEffect(effect)} disabled={this.state.effect}>{effect}</button></li>)}
-                </ul>
-                <p>{this.state.effect}</p>
-                <button onClick={::this.toggleEffect} disabled={!this.state.effect}>Remove effect</button>
-
-                {this.renderEffect()}
+            <div className="container">
+                {this.state.effect ? this.renderPedal() : this.renderList()}
             </div>
         );
     }

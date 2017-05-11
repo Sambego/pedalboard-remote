@@ -1,0 +1,65 @@
+/**
+ * Button Styles
+ */
+
+@mixin button-reset() {
+    padding: 0;
+
+    border: 0;
+    outline: 0;
+
+    cursor: pointer;
+}
+
+.button {
+    @include button-reset;
+
+    will-change: border-color, color;
+    transition: border-color .4s ease-in-out, color .4s ease-in-out;
+
+    padding: 1rem;
+
+    background: darken($blue, 5);
+
+    border: 1px solid currentColor;
+    border-radius: 5px;
+
+    font-size: 1.6rem;
+    color: $white;
+
+
+    &--full {
+        width: 100%;
+    }
+
+    &--close {
+        @include button-reset;
+
+        will-change: transform;
+        transition: all .4s ease-in-out;
+
+        position: absolute;
+        top: -1rem;
+        right: -1rem;
+
+        width: 2rem;
+        height: 2rem;
+        padding: 0 0 3px 0;
+
+        background: lighten($blue, 15);
+
+        border: 1px solid darken($blue, 5);
+        border-radius: 50%;
+
+        color: darken($blue, 5);
+        font-size: 1rem;
+        font-weight: bold;
+        line-height: 100%;
+        text-align: center;
+        vertical-align: middle;
+
+        &:hover {
+            transform: rotate(90deg);
+        }
+    }
+}

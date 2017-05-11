@@ -1,0 +1,46 @@
+/**
+ * Base styles
+ */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+    font-family: Helvetice, Arial, sans-serif;
+    text-align: center;
+    color: darken($blue, 5);
+}
+
+body {
+    background: linear-gradient(45deg, $blue 0%, $green 100%);
+
+    font-size: 1.6rem;
+}
+
+.wrapper {
+    max-width: 40rem;
+    padding: 1.5rem;
+    margin: 0 auto;
+}
+
+.container {
+    padding: 1.5rem;
+
+    background: $white;
+
+    border-radius: 5px;
+    box-shadow: 10px 10px 20px 0 rgba(0,0,0, .05);
+}
+
+.list {
+    padding: 0;
+    margin: 0;
+
+    list-style-type: none;
+
+    li + li {
+        margin: 1rem 0 0 0;
+    }
+}

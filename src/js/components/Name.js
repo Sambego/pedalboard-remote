@@ -13,12 +13,12 @@ const Name = ({onSetName}) => {
     };
 
     return (
-        <div className="name">
+        <div className="container">
             <label className="label">
                 User name
-                <input classname="input" onChange={setName}/>
+                <input type="text" classname="input" onChange={setName}/>
             </label>
-            <button className="button" onClick={useName}>Use name</button>
+            <button className="button button--full" onClick={useName}>Use name</button>
         </div>
     );
 };

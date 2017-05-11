@@ -15,7 +15,7 @@ export default class App extends Component {
         /**
          * Setup the socket.
          */
-        this.socket = io('127.0.0.1:1337');
+        this.socket = io('pedalboard-socket.sambego.be');
     }
 
     componentDidUpdate() {
@@ -47,7 +47,7 @@ export default class App extends Component {
 
     render() {
         return (
-            <div>
+            <div className="wrapper">
                 {this.state.name
                     ? <SelectEffect onAddEffect={::this.addEffect} onRemoveEffect={::this.removeEffect} onUpdateParam={::this.updateParam}/>
                     : <Name onSetName={::this.setState} />

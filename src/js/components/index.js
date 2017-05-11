@@ -5,3 +5,4 @@ export Flanger from './Flanger';
 export Name from './Name';
 export Reverb from './Reverb';
 export SelectEffect from './SelectEffect';
+export Tremolo from './Tremolo';
